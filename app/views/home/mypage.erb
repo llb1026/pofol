@@ -1,0 +1,42 @@
+<section id="mypage" class="wrapper style2 special">
+  <div class="inner alt">
+    <div class="table-wrapper">
+      <header class="major">
+        <h2>My Pofols</h2>
+        <p>Hello, <%= current_user.email %>! Great day. <br />
+          These are what you've written so far. Wonderful!</p>
+      </header>
+      <table>
+        <thead>
+        <tr>
+          <th>Description</th>
+          <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Ante turpis integer aliquet porttitor.</td>
+          <td>29.99</td>
+        </tr>
+        <tr>
+          <td>Vis ac commodo adipiscing arcu aliquet.</td>
+          <td>19.99</td>
+        </tr>
+        <tr>
+          <td> Morbi faucibus arcu accumsan lorem.</td>
+          <td>29.99</td>
+        </tr>
+        <tr>
+          <td>Vitae integer tempus condimentum.</td>
+          <td>19.99</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="actions">
+      <li><%= link_to 'Make Pofol', write_path, method: :get, :class => "button special icon fa-pencil" %></li>
+      <li><%= link_to 'Back to Main', root_path, method: :get, :class => "button icon fa-chevron-left" %></li>
+    </ul>
+  </div>
+
+</section>

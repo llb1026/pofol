@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+	Fractal by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Pofol</title>
+    <%= csrf_meta_tags %>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'main', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'jquery.min', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'jquery.scrolly.min', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'skel.min', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'util', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'main', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_include_tag "//cdn.ckeditor.com/4.6.2/full/ckeditor.js" %>
+  </head>
+
+  <body id="top">
+    <%= yield %>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <p class="copyright">&copy; Pofol by JIYUN. Credits: <a href="http://html5up.net">HTML5 UP</a></p>
+    </footer>
+  </body>
+</html>
