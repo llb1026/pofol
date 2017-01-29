@@ -1,0 +1,30 @@
+<% if @post.errors.any? %>
+  <ul>
+    <%= @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_for @post do |f| %>
+  <div>
+    <%= f.hidden_field :username, :value => current_user.email %>
+  </div>
+  <br />
+  <div>
+    <%= f.label :title %>
+  </div>
+  <div>
+    <%= f.text_field :title %>
+  </div>
+  <br />
+  <div>
+    <%= f.label :body %>
+  </div>
+  <div>
+    <%= f.cktext_area :body, rows: 10 %>
+  </div>
+  <br />
+  <div>
+    <%= f.submit :class => "button special"%>
+  </div>
+<% end %>

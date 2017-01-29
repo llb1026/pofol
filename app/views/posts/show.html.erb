@@ -1,0 +1,30 @@
+<section id="write" class="wrapper">
+  <div class="inner alt">
+    <header class="major">
+      <h2><%= @post.title %></h2>
+      <p>written by <%= @post.username %></p>
+    </header>
+    <div class="inner">
+      <p><%= @post.body.html_safe %></p>
+      <hr />
+      <ul class="align-center">
+        <%= link_to like_link_path(@post), method: :put, :class => "button icon fa-thumbs-o-up" do %>
+            like
+            <%= @post.get_upvotes.size %>
+        <% end %>
+        <%= link_to dislike_link_path(@post), method: :put, :class => "button icon fa-thumbs-o-down" do %>
+            Dislike
+            <%= @post.get_downvotes.size %>
+        <% end %>
+      </ul>
+    </div>
+
+    <ul class="actions">
+      <% if @post.username == current_user.email %>
+        <li><%= link_to 'Edit', edit_post_path(@post.id), :class => "button special icon fa-pencil-square-o" %></li>
+        <li><%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button special icon fa-trash-o" %></li>
+      <% end %>
+      <li><%= link_to 'Back to Main', root_path, method: :get, :class => "button icon fa-chevron-left" %></li>
+    </ul>
+  </div>
+</section>

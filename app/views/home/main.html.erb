@@ -5,7 +5,7 @@
     <p>The best way to make your own portfolio!<br />
       We provide beautiful editor and community.</p>
     <ul class="actions">
-      <li><%= link_to 'Make Pofol', write_path, method: :get, :class => "button special icon fa-pencil" %></li>
+      <li><%= link_to 'Make Pofol', new_post_path, method: :get, :class => "button special icon fa-pencil" %></li>
       <li><a href="#list" class="button icon fa-chevron-down scrolly">Have a look</a></li>
     </ul>
   </div>
@@ -19,60 +19,33 @@
       <header class="major">
         <h2>New Pofols</h2>
       </header>
-      <table>
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Price</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>Item One</td>
-          <td>Ante turpis integer aliquet porttitor.</td>
-          <td>29.99</td>
-        </tr>
-        <tr>
-          <td>Item Two</td>
-          <td>Vis ac commodo adipiscing arcu aliquet.</td>
-          <td>19.99</td>
-        </tr>
-        <tr>
-          <td>Item Three</td>
-          <td> Morbi faucibus arcu accumsan lorem.</td>
-          <td>29.99</td>
-        </tr>
-        <tr>
-          <td>Item Four</td>
-          <td>Vitae integer tempus condimentum.</td>
-          <td>19.99</td>
-        </tr>
-        <tr>
-          <td>Item Five</td>
-          <td>Ante turpis integer aliquet porttitor.</td>
-          <td>29.99</td>
-        </tr>
-        <tr>
-          <td>Item Six</td>
-          <td>Vitae integer tempus condimentum.</td>
-          <td>29.99</td>
-        </tr>
-        <tr>
-          <td>Item Seven</td>
-          <td>Ante turpis integer aliquet porttitor.</td>
-          <td>19.99</td>
-        </tr>
-        </tbody>
-        <tfoot>
-        <tr>
-          <td colspan="2"></td>
-          <td>100.00</td>
-        </tr>
-        </tfoot>
-      </table>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+          <tr>
+            <th>No.</th>
+            <th>User</th>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Likes</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @posts.each do |x| %>
+              <tr>
+                <td><%= x.id %></td>
+                <td><%= x.username %></td>
+                <td><%= link_to x.title, post_path(x.id), method: :get %></td>
+                <td><%= x.created_at.in_time_zone("Asia/Seoul").strftime("%Y.%m.%d (%H:%M)") %></td>
+                <td><%= x.get_upvotes.size %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
+  <br />
 </section>
 
 <!-- Three -->

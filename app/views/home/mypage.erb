@@ -6,32 +6,28 @@
         <p>Hello, <%= current_user.email %>! Great day. <br />
           These are what you've written so far. Wonderful!</p>
       </header>
-      <table>
-        <thead>
-        <tr>
-          <th>Description</th>
-          <th>Price</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>Ante turpis integer aliquet porttitor.</td>
-          <td>29.99</td>
-        </tr>
-        <tr>
-          <td>Vis ac commodo adipiscing arcu aliquet.</td>
-          <td>19.99</td>
-        </tr>
-        <tr>
-          <td> Morbi faucibus arcu accumsan lorem.</td>
-          <td>29.99</td>
-        </tr>
-        <tr>
-          <td>Vitae integer tempus condimentum.</td>
-          <td>19.99</td>
-        </tr>
-        </tbody>
-      </table>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+          <tr>
+            <th>No.</th>
+            <th>Title</th>
+            <th>Date</th>
+          </tr>
+          </thead>
+          <tbody>
+            <% @post.each do |x| %>
+              <% if x.username == current_user.email %>
+              <tr>
+                <td><%= x.id %></td>
+                <td><%= link_to x.title, post_path(x.id), method: :get %></td>
+                <td><%= x.created_at.in_time_zone("Asia/Seoul").strftime("%Y.%m.%d (%H:%M)") %></td>
+              </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
     <ul class="actions">
       <li><%= link_to 'Make Pofol', write_path, method: :get, :class => "button special icon fa-pencil" %></li>

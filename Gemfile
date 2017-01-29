@@ -6,10 +6,10 @@ git_source(:github) do |repo_name|
 end
 
 # 내가 설치한 젬
-gem 'devise'        # 로그인
-gem 'ckeditor'      # 에디터
-gem 'smart_listing' # 글목록
-
+gem 'devise'
+gem 'ckeditor'
+gem 'smart_listing'
+gem 'acts_as_votable', '~> 0.10.0'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
