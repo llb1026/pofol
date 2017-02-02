@@ -8,4 +8,4 @@ Additional Gems:
 * 'will_paginate' for pagination
 * 'acts_as_votable' for like/dislike
 
-For more details, visit [here]("https://llb1026.github.io/Pofol/").
+For more details, visit [here](https://llb1026.github.io/Pofol/).
