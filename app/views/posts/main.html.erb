@@ -19,15 +19,14 @@
       <header class="major">
         <h2>New Pofols</h2>
       </header>
-      <div class="table-wrapper">
         <table>
           <thead>
           <tr>
             <th>No.</th>
             <th>User</th>
             <th>Title</th>
-            <th>Date</th>
             <th>Likes</th>
+            <th>Date</th>
           </tr>
           </thead>
           <tbody>
@@ -36,12 +35,14 @@
                 <td><%= x.id %></td>
                 <td><%= x.username %></td>
                 <td><%= link_to x.title, post_path(x.id), method: :get %></td>
-                <td><%= x.created_at.in_time_zone("Asia/Seoul").strftime("%Y.%m.%d (%H:%M)") %></td>
                 <td><%= x.get_upvotes.size %></td>
+                <td><%= x.created_at.in_time_zone("Asia/Seoul").strftime("%Y.%m.%d (%H:%M)") %></td>
               </tr>
           <% end %>
           </tbody>
         </table>
+        <%= will_paginate @posts, :class => 'apple_pagination' %>
+        <br />
       </div>
     </div>
   </div>
@@ -54,7 +55,7 @@
       <header class="major">
         <h2>Hello, <%= current_user.email %></h2>
         <p>Got some inspirations? Full of brilliant ideas?<br />
-          lectus ultricies eu. In convallis amet leo sapien iaculis efficitur.</p>
+          This is the perfect time to make your brand new portfolio!</p>
       </header>
       <ul class="actions">
         <li><%= link_to 'My Page', mypage_path, method: :get, :class => "button special icon fa-user" %></li>

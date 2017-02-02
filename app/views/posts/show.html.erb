@@ -6,7 +6,7 @@
     </header>
     <div class="inner">
       <p><%= @post.body.html_safe %></p>
-      <hr />
+      <br />
       <ul class="align-center">
         <%= link_to like_link_path(@post), method: :put, :class => "button icon fa-thumbs-o-up" do %>
             like
@@ -17,6 +17,25 @@
             <%= @post.get_downvotes.size %>
         <% end %>
       </ul>
+    </div>
+
+    <div class="inner alt">
+      <div class="align-right">
+        <form action="/write_reply" method="POST">
+          <input type="hidden" value="<%= @post.id %>" name="post_id">
+          <input type="hidden" value="<%= current_user.email %>" name="username">
+          <textarea name="content" placeholder="댓글을 남겨주세요" id="content_input_<%= @post.id %>" rows="1"></textarea>
+          <br />
+          <button value="<%= @post.id %>" type="submit">Reply</button>
+        </form>
+      </div>
+      <div id="reply_<%= @post.id %>">
+        <ul class="alt">
+          <% @post.replies.each do |r| %>
+              <li><%= r.username %> : <%= r.content %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
 
     <ul class="actions">

@@ -8,7 +8,7 @@ end
 # 내가 설치한 젬
 gem 'devise'
 gem 'ckeditor'
-gem 'smart_listing'
+gem 'will_paginate'
 gem 'acts_as_votable', '~> 0.10.0'
 
 

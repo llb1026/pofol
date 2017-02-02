@@ -14,5 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require ckeditor/init
-//= require smart_listing
 //= require_tree .

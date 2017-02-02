@@ -1,5 +1,17 @@
 class PostsController < ApplicationController
 
+  def main
+    unless user_signed_in?
+      redirect_to '/users/sign_in'
+    end
+    @posts = Post.all.paginate(page: params[:page], per_page: 5).order("created_at DESC")
+    #@posts = Post.order("created_at DESC")
+  end
+
+  def mypage
+    @post = Post.all
+  end
+
   def show
     @post = Post.find(params[:id])
     session[:return_to] = request.fullpath
@@ -47,6 +59,16 @@ class PostsController < ApplicationController
   def downvote
     @link = Post.find(params[:id])
     @link.downvote_by current_user
+    redirect_to :back
+  end
+
+  def write_reply
+    reply = Reply.new
+    reply.content = params[:content]
+    reply.post_id = params[:post_id]
+    reply.username = params[:username]
+    reply.save
+
     redirect_to :back
   end
 

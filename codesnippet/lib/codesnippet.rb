@@ -1,3 +1,0 @@
-module Codesnippet
-  # Your code goes here...
-end
